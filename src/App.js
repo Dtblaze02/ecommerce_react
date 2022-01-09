@@ -5,21 +5,46 @@ import ShopPage from './components/shop/shop.component';
 import Header from './components/header/header-component';
 import './App.css';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-sign-up-component';
+import { auth } from './firebase/firebase.util';
+//import { Component } from 'react/cjs/react.production.min';
 
+class App extends React.Component{
+  constructor(props){
+    super(props);
 
-function App() {
-  return (
-    <div>
-      <Router>
-        <Header/>
-        <Routes>
-          <Route exact path='/' element={<Homepage/>}/>      
-          <Route path='/shop' element={<ShopPage/>}/>      
-          <Route path='/signin' element={<SignInAndSignUpPage/>}/>      
-        </Routes>
-      </Router>
-    </div>
-  );
+    this.state = {
+      currentUser:null
+    }
+  }
+
+    unsubscribeFromAuth = null;
+
+    componentDidMount(){
+      this.unsubscribeFromAuth = auth.onAuthStateChanged(user=>{
+        this.setState({currentUser:user});
+
+        console.log(user);
+      })
+    }
+
+    componentWillUnmount(){
+      this.unsubscribeFromAuth();
+    }
+
+    render (){
+      return(
+      <div>
+        <Router>
+          <Header currentUser={this.state.currentUser}/>
+          <Routes>
+            <Route exact path='/' element={<Homepage/>}/>      
+            <Route path='/shop' element={<ShopPage/>}/>      
+            <Route path='/signin' element={<SignInAndSignUpPage/>}/>      
+          </Routes>
+        </Router>
+      </div>
+      )
+    };
 }
 
 export default App;
