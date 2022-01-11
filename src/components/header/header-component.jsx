@@ -4,6 +4,7 @@ import './header-component.styles.scss';
 import { Link } from "react-router-dom";
 import {ReactComponent as Logo} from '../../assets/img/crown.svg';
 import { auth } from "../../firebase/firebase.util";
+import CartIcon from "../cart-icon/cart-icon.component";
 
 
 const Header = ({currentUser})=>(
@@ -24,6 +25,7 @@ const Header = ({currentUser})=>(
                 </Link>
 
             }
+            <CartIcon/>
         </div>
     </div>
 )
