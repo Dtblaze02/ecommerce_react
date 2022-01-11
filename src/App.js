@@ -1,6 +1,6 @@
 import React from 'react';
 import Homepage from './pages/homepage/homepage.component';
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import ShopPage from './components/shop/shop.component';
 import Header from './components/header/header-component';
 import './App.css';
@@ -48,15 +48,13 @@ class App extends React.Component{
 
     render (){
       return(
-      <div>
-        <Router>
+      <div>        
           <Header currentUser={this.state.currentUser}/>
           <Routes>
             <Route exact path='/' element={<Homepage/>}/>      
             <Route path='/shop' element={<ShopPage/>}/>      
             <Route path='/signin' element={<SignInAndSignUpPage/>}/>      
-          </Routes>
-        </Router>
+          </Routes>        
       </div>
       )
     };
