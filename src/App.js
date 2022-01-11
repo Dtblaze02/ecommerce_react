@@ -1,6 +1,6 @@
 import React from 'react';
 import Homepage from './pages/homepage/homepage.component';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import ShopPage from './components/shop/shop.component';
 import Header from './components/header/header-component';
 import {setCurrentUser} from './redux/users/user.action';
@@ -35,7 +35,7 @@ class App extends React.Component{
 
     componentWillUnmount(){
       this.unsubscribeFromAuth();
-    }
+    }    
 
     render (){
       return(
@@ -44,7 +44,11 @@ class App extends React.Component{
           <Routes>
             <Route exact path='/' element={<Homepage/>}/>      
             <Route path='/shop' element={<ShopPage/>}/>      
-            <Route path='/signin' element={<SignInAndSignUpPage/>}/>      
+            <Route path='/signin' element={
+              <SignInWrapper currentUser={this.props.currentUser}>
+                <SignInAndSignUpPage/>
+              </SignInWrapper>
+            }/>      
           </Routes>        
       </div>
       )
@@ -54,6 +58,10 @@ class App extends React.Component{
 const mapStateToProps = ({user}) => ({
   currentUser: user.currentUser
 })
+
+const SignInWrapper = ({ children, currentUser}) =>{
+  return currentUser ? <Navigate to='/' replace/> : children;
+}
 
 const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))
