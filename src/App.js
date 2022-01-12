@@ -3,7 +3,7 @@ import Homepage from './pages/homepage/homepage.component';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import ShopPage from './components/shop/shop.component';
 import Header from './components/header/header-component';
-import {setCurrentUser} from './redux/users/user.actions';
+import {setCurrentUser} from './redux/user/user.actions';
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { connect } from 'react-redux';
