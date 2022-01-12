@@ -7,6 +7,7 @@ import {setCurrentUser} from './redux/users/user.actions';
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { connect } from 'react-redux';
+import CheckOutPage from './pages/checkout/checkout.component'
 import './App.css';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-sign-up-component';
 import { auth, createUserProfileDocument } from './firebase/firebase.util';
@@ -50,7 +51,9 @@ class App extends React.Component{
               <SignInWrapper currentUser={this.props.currentUser}>
                 <SignInAndSignUpPage/>
               </SignInWrapper>
-            }/>      
+            }/>   
+            <Route exact path='/checkout' element={ <CheckOutPage/>} />
+
           </Routes>        
       </div>
       )
