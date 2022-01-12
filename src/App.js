@@ -3,7 +3,9 @@ import Homepage from './pages/homepage/homepage.component';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import ShopPage from './components/shop/shop.component';
 import Header from './components/header/header-component';
-import {setCurrentUser} from './redux/users/user.action';
+import {setCurrentUser} from './redux/users/user.actions';
+import { createStructuredSelector } from 'reselect';
+import { selectCurrentUser } from './redux/user/user.selectors';
 import { connect } from 'react-redux';
 import './App.css';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-sign-up-component';
@@ -55,9 +57,9 @@ class App extends React.Component{
     };
 }
 
-const mapStateToProps = ({user}) => ({
-  currentUser: user.currentUser
-})
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser
+});
 
 const SignInWrapper = ({ children, currentUser}) =>{
   return currentUser ? <Navigate to='/' replace/> : children;
