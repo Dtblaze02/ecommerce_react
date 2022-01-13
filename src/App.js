@@ -11,6 +11,7 @@ import CheckOutPage from './pages/checkout/checkout.component'
 import './App.css';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-sign-up-component';
 import { auth, createUserProfileDocument } from './firebase/firebase.util';
+import CollectionPage from './pages/collection/collection.component';
 
 class App extends React.Component{
 
@@ -46,14 +47,14 @@ class App extends React.Component{
           <Header/>
           <Routes>
             <Route exact path='/' element={<Homepage/>}/>      
-            <Route path='/shop' element={<ShopPage/>}/>      
+            <Route path='/shop/*' element={<ShopPage/>}/>      
             <Route path='/signin' element={
               <SignInWrapper currentUser={this.props.currentUser}>
                 <SignInAndSignUpPage/>
               </SignInWrapper>
-            }/>   
+            }/>
+            <Route path='shop/:collectionId' element={<CollectionPage/>} />   
             <Route exact path='/checkout' element={ <CheckOutPage/>} />
-
           </Routes>        
       </div>
       )
