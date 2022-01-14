@@ -4,8 +4,9 @@ import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
 import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
+import { Link } from 'react-router-dom';
 
-import './sign-up.styles.scss';
+//import './sign-up.styles.scss';
 
 class SignUp extends React.Component {
   constructor() {
@@ -60,41 +61,48 @@ class SignUp extends React.Component {
       <div className='sign-up'>
         <h2 className='title'>I do not have an account</h2>
         <span>Sign up with your email and password</span>
-        <form className='sign-up-form' onSubmit={this.handleSubmit}>
-          <FormInput
-            type='text'
-            name='displayName'
-            value={displayName}
-            onChange={this.handleChange}
-            label='Display Name'
-            required
-          />
-          <FormInput
-            type='email'
-            name='email'
-            value={email}
-            onChange={this.handleChange}
-            label='Email'
-            required
-          />
-          <FormInput
-            type='password'
-            name='password'
-            value={password}
-            onChange={this.handleChange}
-            label='Password'
-            required
-          />
-          <FormInput
-            type='password'
-            name='confirmPassword'
-            value={confirmPassword}
-            onChange={this.handleChange}
-            label='Confirm Password'
-            required
-          />
-          <CustomButton type='submit'>SIGN UP</CustomButton>
-        </form>
+        <main class="form-signin">
+          <form className='sign-up-form' onSubmit={this.handleSubmit}>
+            <div class="form-floating">
+              <FormInput
+                type='text'
+                name='displayName'
+                value={displayName}
+                onChange={this.handleChange}
+                label='Display Name'
+                required
+              />
+            </div>
+            <FormInput
+              type='email'
+              name='email'
+              value={email}
+              onChange={this.handleChange}
+              label='Email'
+              required
+            />
+            <FormInput
+              type='password'
+              name='password'
+              value={password}
+              onChange={this.handleChange}
+              label='Password'
+              required
+            />
+            <FormInput
+              type='password'
+              name='confirmPassword'
+              value={confirmPassword}
+              onChange={this.handleChange}
+              label='Confirm Password'
+              required
+            />
+            <CustomButton type='submit'>SIGN UP</CustomButton>
+          </form>
+        </main>
+          <h5 className='mt-3'> Already have an Account?  
+              <Link className='option' to='/signin'> Sign in </Link>
+          </h5>
       </div>
     );
   }
