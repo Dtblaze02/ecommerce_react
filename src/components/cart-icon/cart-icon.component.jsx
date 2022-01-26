@@ -5,13 +5,14 @@ import { createStructuredSelector } from 'reselect';
 
 import { toggleCartHidden } from '../../redux/cart/cart.actions';
 import { selectCartItemsCount } from '../../redux/cart/cart.selectors';
+import 'bootstrap/dist/css/bootstrap.css'
 
 const CartIcon = ({ toggleCartHidden, itemCount }) => (
 
-  <li class="checkout" onClick={toggleCartHidden}>
+  <li className ="checkout" onClick={toggleCartHidden}>
         <Link to='#'>
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-            <span id="checkout_items" class="checkout_items">{itemCount}</span>
+            <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+            <span id="checkout_items" className="checkout_items">{itemCount}</span>
         </Link>
   </li>
 );
