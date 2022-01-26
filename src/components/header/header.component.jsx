@@ -54,9 +54,9 @@ const Header = ({ currentUser, hidden }) => (
                 </li>
                 <li>
                   {currentUser ? (
-                    <div className='nav-link' onClick={() => auth.signOut()}>
-                      SIGN OUT
-                    </div>
+                    <span className='nav-link' onClick={() => auth.signOut()}>
+                      sign out
+                    </span>
                     ) : (
                   <Link className='nav-link' to='/signin'>
                     <i class="fa fa-user" aria-hidden="true"></i>                          
