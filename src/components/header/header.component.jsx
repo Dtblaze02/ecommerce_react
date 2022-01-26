@@ -13,18 +13,18 @@ import 'bootstrap/dist/css/bootstrap.css'
 
 const Header = ({ currentUser, hidden }) => (
 
-<header class="header trans_300">        
-    <div class="main_nav_container">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-right">
-            <div class="logo_container">
+<header className="header trans_300">        
+    <div className="main_nav_container">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12 text-right">
+            <div className="logo_container">
             <Link to='/'>
               Shop<span>N</span>Go
             </Link>
             </div>
-            <nav class="navbar">
-              <ul class="navbar_menu">
+            <nav className="navbar">
+              <ul className="navbar_menu">
                 <li>  
                   <Link to='/shop'>
                     SHOP
@@ -46,10 +46,10 @@ const Header = ({ currentUser, hidden }) => (
                   </Link>
                 </li>                      
               </ul>
-              <ul class="navbar_user">
+              <ul className="navbar_user">
                 <li>
                   <Link to='#'>
-                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <i className="fa fa-search" aria-hidden="true"></i>
                   </Link>
                 </li>
                 <li>
@@ -58,16 +58,16 @@ const Header = ({ currentUser, hidden }) => (
                       sign out
                     </span>
                     ) : (
-                  <Link className='nav-link' to='/signin'>
-                    <i class="fa fa-user" aria-hidden="true"></i>                          
+                  <Link to='/signin'>
+                    <i className="fa fa-user" aria-hidden="true"></i>                          
                   </Link>
                     )}
                 </li>
                   <CartIcon/>
                   {hidden ? null : <CartDropdown />}
               </ul>
-              <div class="hamburger_container">
-                <i class="fa fa-bars" aria-hidden="true"></i>
+              <div className="hamburger_container">
+                <i className="fa fa-bars" aria-hidden="true"></i>
               </div>
             </nav>
           </div>
