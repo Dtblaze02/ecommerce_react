@@ -15,12 +15,12 @@ const Hamburger = ()=>(
                 </Link>
               </li>
               <li className="menu_item">
-                <Link to='/shop'>
+                <Link to='#'>
                   BLOG
                 </Link>
               </li>
               <li className="menu_item">
-                <Link to='/shop'>
+                <Link to='#'>
                   PROMOTION
                 </Link>
               </li>
