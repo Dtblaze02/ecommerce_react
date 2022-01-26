@@ -9,7 +9,6 @@ import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 import { selectCartHidden } from '../../redux/cart/cart.selectors';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
 import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap/js/src/dom/manipulator'
 
 
 const Header = ({ currentUser, hidden }) => (
